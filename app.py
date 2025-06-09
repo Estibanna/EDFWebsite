@@ -31,12 +31,7 @@ ACCESS_MILLIONAIRES = [ROLE_MOD, ROLE_OWNER, ROLE_MILLIONAIRE, ROLE_BILLIONAIRE,
 ACCESS_BILLIONAIRES = [ROLE_MOD, ROLE_OWNER, ROLE_BILLIONAIRE, ROLE_TRILLIONAIRE]
 ACCESS_TRILLIONAIRES = [ROLE_MOD, ROLE_OWNER, ROLE_TRILLIONAIRE]
 
-@app.before_request
-def force_domain():
-    # Redirect only if request host is NOT your main domain
-    if request.host != "edfflipping.com":
-        url = request.url.replace(request.host, "edfflipping.com", 1)
-        return redirect(url, code=301)
+
         
 # === HELPER FUNCTIES ===
 def get_token(code):
