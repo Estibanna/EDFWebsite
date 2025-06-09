@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Trillionaires Tier</title>
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    .tier-container {
+      max-width: 96vw;
+      width: 96vw;
+      min-width: 0;
+      margin: 32px auto 30px auto;
+      background: var(--card, #2c2f33);
+      border-radius: 20px;
+      box-shadow: 0 2px 18px rgba(0,0,0,0.13);
+      padding: 20px 2vw 34px 2vw;
+      overflow-x: auto;
+    }
+    .tier-title {
+      color: #fff;
+      font-size: 2.1rem;
+      font-weight: 700;
+      background: var(--primary, #273f96);
+      border-radius: 10px 10px 0 0;
+      padding: 18px 0;
+      margin-bottom: 0;
+      text-align: center;
+      box-shadow: 0 2px 12px rgba(114,137,218,0.13);
+    }
+    .tier-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 0;
+      background: #23272a;
+      border-radius: 0 0 14px 14px;
+      overflow: hidden;
+      font-size: 1.06rem;
+    }
+    .tier-table thead tr {
+      background: var(--primary, #220f31);
+      color: #fff;
+      text-align: left;
+      font-weight: 700;
+    }
+    .tier-table th, .tier-table td {
+      padding: 12px 8px;
+      border-bottom: 1px solid #36393f;
+      vertical-align: middle;
+    }
+    .tier-table tbody tr:nth-child(even) {
+      background: #292b2f;
+    }
+    .tier-table tbody tr:hover {
+      background: #3a3f4b;
+    }
+    .top-links {
+      margin-bottom: 18px;
+      text-align: right;
+    }
+    .top-links a {
+      color: var(--primary);
+      text-decoration: none;
+      margin-left: 18px;
+      font-weight: bold;
+      font-size: 1.09rem;
+    }
+    .top-links a:hover {
+      text-decoration: underline;
+    }
+    @media (max-width: 1000px) {
+      .tier-container { padding: 10px 2vw; }
+      .tier-title { font-size: 1.3rem; padding: 13px 0; }
+      .tier-table th, .tier-table td { font-size: 0.98rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="tier-container">
+    <div class="top-links">
+      <a href="/secret">&larr; Terug</a>
+      <a href="/logout" style="color: var(--accent);">Logout</a>
+    </div>
+    <div class="tier-title">Millionaires Tier</div>
+    </div><br>
+
+
+    <table class="tier-table">
+      <thead>
+        <tr>
+          <th>Gear</th>
+          <th>Abbreviation</th>
+          <th>Average Margin</th>
+          <th>Buy-limit</th>
+          <th>Update amount</th>
+          <th>Update time</th>
+          <th>Risk</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Amulet of forsaken</td><td>Forsaken</td><td>3-8m</td><td>4</td><td>200k</td><td>2,5h+</td><td>Medium</td></tr>
+        <tr><td>Amulet of souls</td><td>Soul ammy</td><td>3-8m</td><td>100</td><td>200k</td><td>2,5h+</td><td>Medium</td></tr>
+        <tr><td>Anima core body of seren</td><td>AC seren top</td><td>2-3m</td><td>2</td><td>200k</td><td>3h+</td><td>Low</td></tr>
+        <tr><td>Anima core body of sliske</td><td>AC sliske top</td><td>4-6m</td><td>2</td><td>200k</td><td>3h+</td><td>Low</td></tr>
+        <tr><td>Anima core body of zamorak</td><td>AC zammy top</td><td>1-2m</td><td>2</td><td>200k</td><td>3h+</td><td>Low</td></tr>
+        <tr><td>Anima core body of zaros</td><td>AC zaros top</td><td>3-5m</td><td>2</td><td>200k</td><td>3h+</td><td>Low</td></tr>
+        <tr><td>Anima core helm of Seren</td><td>AC seren helm</td><td>2-3m</td><td>2</td><td>200k</td><td>3h+</td><td>Low</td></tr>
+        <tr><td>Anima core helm of Sliske</td><td>AC Sliske helm</td><td>4-6m</td><td>2</td><td>200k</td><td>3h+</td><td>Low</td></tr>
+        <tr><td>Anima core helm of zamorak</td><td>AC zammy helm</td><td>1-2m</td><td>2</td><td>200k</td><td>3h+</td><td>Low</td></tr>
+        <tr><td>Anima core helm of zaros</td><td>AC Zaros helm</td><td>2-3m</td><td>2</td><td>200k</td><td>3h+</td><td>Low</td></tr>
+        <!-- Voeg meer rijen toe zoals in je Excel -->
+      </tbody>
+    </table>
+    <div style="margin-top:18px;color:var(--muted);font-size:1rem;">
+      
+    </div>
+  </div>
+</body>
+</html>
