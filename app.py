@@ -87,7 +87,7 @@ def static_files(filename):
 def login():
     redirect_uri = urllib.parse.quote_plus(DISCORD_REDIRECT_URI)
     return redirect(
-        f"https://discord.com/oauth2/authorize?client_id=1381635320658788363&response_type=code&redirect_uri=https%3A%2F%2Fedfwebsite.onrender.com%2Fcallback&scope=guilds.members.read+identify+guilds"
+        f"https://discord.com/oauth2/authorize?client_id=1377710117969203290&response_type=code&redirect_uri=https%3A%2F%2Fedfwebsite.onrender.com%2Fcallback&scope=identify+guilds+guilds.members.read"
     )
     
 # Discord callback
