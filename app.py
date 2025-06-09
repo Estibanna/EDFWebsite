@@ -137,12 +137,8 @@ def billionaires():
         return redirect('/login')
     if not user_has_access(session.get('roles', []), ACCESS_BILLIONAIRES):
         return redirect(PATREON_URL)
-    # Zowel millionaires.xlsx als billionaires.xlsx laten zien
-    data = {}
-    df_millionaires = pd.read_excel('millionaires.xlsx')
-    df_billionaires = pd.read_excel('billionaires.xlsx')
-    data['millionaires'] = df_millionaires.values.tolist()
-    data['billionaires'] = df_billionaires.values.tolist()
+    df = pd.read_excel('billionaires.xlsx')
+    data = df.values.tolist()
     return render_template("billionaires.html", data=data)
 
 # Trillionaires Page - alleen voor trillionaires (en mods/owners)
@@ -152,13 +148,8 @@ def trillionaires():
         return redirect('/login')
     if not user_has_access(session.get('roles', []), ACCESS_TRILLIONAIRES):
         return redirect(PATREON_URL)
-    data = {}
-    df_millionaires = pd.read_excel('millionaires.xlsx')
-    df_billionaires = pd.read_excel('billionaires.xlsx')
-    df_trillionaires = pd.read_excel('trillionaires.xlsx')
-    data['millionaires'] = df_millionaires.values.tolist()
-    data['billionaires'] = df_billionaires.values.tolist()
-    data['trillionaires'] = df_trillionaires.values.tolist()
+    df = pd.read_excel('trillionaires.xlsx')
+    data = df.values.tolist()
     return render_template("trillionaires.html", data=data)
 
 # 403: Geen toegang
