@@ -98,13 +98,10 @@
       </thead>
       <tbody>
         <table>
-		  {% for row in data %}
-			<tr>
-			  {% for cell in row %}
-				<td>{{ cell }}</td>
-			  {% endfor %}
-			</tr>
-		  {% endfor %}
+		  {% for row in data['billionaires'] %}
+		  <tr>{% for cell in row %}<td>{{ cell }}
+		  </td>{% endfor %}</tr>
+		{% endfor %}
 		</table>
       </tbody>
     </table>
