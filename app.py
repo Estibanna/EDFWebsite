@@ -11,7 +11,7 @@ app.secret_key = 'ikke'
 # === Vul hier je Discord IDs in ===
 DISCORD_CLIENT_ID = '1381635320658788363'
 DISCORD_CLIENT_SECRET = 'I0Y5P3z8pXkyhgQabam-_eT56Mal4EWl'
-DISCORD_REDIRECT_URI = 'https://edfflipping.com/callback'  # Pas aan als je online host
+DISCORD_REDIRECT_URI = 'https://edfwebsite.onrender.com/callback'  # Pas aan als je online host
 DISCORD_GUILD_ID = '1334260436098355250'
 
 # Vul hieronder de role IDs in! (rechtsklik in Discord > Copy Role ID)
@@ -80,7 +80,7 @@ def static_files(filename):
 def login():
     redirect_uri = urllib.parse.quote_plus(DISCORD_REDIRECT_URI)
     return redirect(
-        f"https://discord.com/oauth2/authorize?client_id=1381635320658788363&response_type=code&redirect_uri=https%3A%2F%2Fedfflipping.com%2Fcallback&scope=guilds.members.read+identify+guilds"
+        f"https://discord.com/oauth2/authorize?client_id=1381635320658788363&response_type=code&redirect_uri=https%3A%2F%2Fedfwebsite.onrender.com%2Fcallback&scope=guilds.members.read+identify+guilds"
     )
     
 # Discord callback
