@@ -3,8 +3,7 @@ import pandas as pd
 import requests
 import os
 from flask import render_template
-from flask_cors import CORS
-CORS(app)
+
 
 app = Flask(__name__)
 app.secret_key = 'ikke'
@@ -12,7 +11,7 @@ app.secret_key = 'ikke'
 # === Vul hier je Discord IDs in ===
 DISCORD_CLIENT_ID = '1381635320658788363'
 DISCORD_CLIENT_SECRET = 'I0Y5P3z8pXkyhgQabam-_eT56Mal4EWl'
-DISCORD_REDIRECT_URI = 'https://edfwebsite.onrender.com/login'  # Pas aan als je online host
+DISCORD_REDIRECT_URI = 'https://discord.com/oauth2/authorize?client_id=1381635320658788363&response_type=code&redirect_uri=https%3A%2F%2Fedfwebsite.onrender.com%2Fcallback&scope=guilds.members.read+identify+guilds'  # Pas aan als je online host
 DISCORD_GUILD_ID = '1334260436098355250'
 
 # Vul hieronder de role IDs in! (rechtsklik in Discord > Copy Role ID)
@@ -36,6 +35,7 @@ def get_token(code):
         'code': code,
         'redirect_uri': DISCORD_REDIRECT_URI,
         'scope': 'identify guilds guilds.members.read'
+    
     }
     headers = {'Content-Type': 'application/x-www-form-urlencoded'}
     resp = requests.post('https://discord.com/api/oauth2/token', data=data, headers=headers)
@@ -75,26 +75,13 @@ def static_files(filename):
         return send_from_directory('', filename)
     abort(404)
 
-# Discord login
+
 @app.route('/login')
 def login():
+    redirect_uri = urllib.parse.quote_plus(DISCORD_REDIRECT_URI)
     return redirect(
-        f"https://discord.com/api/oauth2/authorize?client_id={DISCORD_CLIENT_ID}&redirect_uri={DISCORD_REDIRECT_URI}&response_type=code&scope=identify%20guilds%20guilds.members.read"
+        f"https://discord.com/oauth2/authorize?client_id={DISCORD_CLIENT_ID}&response_type=code&redirect_uri={redirect_uri}&scope=guilds.members.read+identify+guilds"
     )
-    
-    
-@app.route('/login')
-def login():
-    discord_login_url = (
-        "https://discord.com/api/oauth2/authorize"
-        "?client_id=1381635320658788363"
-        "&redirect_uri=https%3A%2F%2Fedfwebsite.onrender.com%2Fcallback"
-        "&response_type=code"
-        "&scope=identify%20guilds"
-    )
-    return redirect(discord_login_url)
-    
-    
     
 # Discord callback
 @app.route('/callback')
