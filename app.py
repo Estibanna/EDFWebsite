@@ -96,7 +96,16 @@ def callback():
     session['roles'] = roles
     return redirect(url_for('secret_menu'))
 
-
+@app.route('/login')
+def login():
+    discord_login_url = (
+        "https://discord.com/api/oauth2/authorize"
+        "?client_id=JOUW_CLIENT_ID"
+        "&redirect_uri=https%3A%2F%2Fedfwebsite.onrender.com%2Fcallback"
+        "&response_type=code"
+        "&scope=identify%20guilds"
+    )
+    return redirect(discord_login_url)
 
 # Uitloggen
 @app.route('/logout')
