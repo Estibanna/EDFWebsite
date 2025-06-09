@@ -12,7 +12,7 @@ app.secret_key = 'ikke'
 # === Vul hier je Discord IDs in ===
 DISCORD_CLIENT_ID = '1381635320658788363'
 DISCORD_CLIENT_SECRET = 'I0Y5P3z8pXkyhgQabam-_eT56Mal4EWl'
-DISCORD_REDIRECT_URI = 'https://edfwebsite.onrender.com/'  # Pas aan als je online host
+DISCORD_REDIRECT_URI = 'https://edfwebsite.onrender.com/callback'  # Pas aan als je online host
 DISCORD_GUILD_ID = '1334260436098355250'
 
 # Vul hieronder de role IDs in! (rechtsklik in Discord > Copy Role ID)
