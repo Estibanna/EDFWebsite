@@ -12,7 +12,7 @@ app.secret_key = 'ikke'
 # === Vul hier je Discord IDs in ===
 DISCORD_CLIENT_ID = '1381635320658788363'
 DISCORD_CLIENT_SECRET = 'I0Y5P3z8pXkyhgQabam-_eT56Mal4EWl'
-DISCORD_REDIRECT_URI = 'https://edfwebsite.onrender.com/callback'  # Pas aan als je online host
+DISCORD_REDIRECT_URI = 'https://edfwebsite.onrender.com/login'  # Pas aan als je online host
 DISCORD_GUILD_ID = '1334260436098355250'
 
 # Vul hieronder de role IDs in! (rechtsklik in Discord > Copy Role ID)
@@ -81,7 +81,21 @@ def login():
     return redirect(
         f"https://discord.com/api/oauth2/authorize?client_id={DISCORD_CLIENT_ID}&redirect_uri={DISCORD_REDIRECT_URI}&response_type=code&scope=identify%20guilds%20guilds.members.read"
     )
-
+    
+    
+@app.route('/login')
+def login():
+    discord_login_url = (
+        "https://discord.com/api/oauth2/authorize"
+        "?client_id=1381635320658788363"
+        "&redirect_uri=https%3A%2F%2Fedfwebsite.onrender.com%2Fcallback"
+        "&response_type=code"
+        "&scope=identify%20guilds"
+    )
+    return redirect(discord_login_url)
+    
+    
+    
 # Discord callback
 @app.route('/callback')
 def callback():
@@ -96,16 +110,7 @@ def callback():
     session['roles'] = roles
     return redirect(url_for('secret_menu'))
 
-@app.route('/login')
-def login():
-    discord_login_url = (
-        "https://discord.com/api/oauth2/authorize"
-        "?client_id=1381635320658788363"
-        "&redirect_uri=https%3A%2F%2Fedfwebsite.onrender.com%2Fcallback"
-        "&response_type=code"
-        "&scope=identify%20guilds"
-    )
-    return redirect(discord_login_url)
+
 
 # Uitloggen
 @app.route('/logout')
