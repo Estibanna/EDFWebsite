@@ -77,7 +77,7 @@ def tracker():
 
 
 # CSS en andere statische bestanden (zorg dat ze werken)
-@app.route('index.html')
+@app.route('/')
 def static_files(filename):
     if filename.endswith('.css') or filename.endswith('.png') or filename.endswith('.ico'):
         return send_from_directory('', '/index.html')
