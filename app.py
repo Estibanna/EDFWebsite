@@ -65,8 +65,8 @@ def user_has_access(user_roles, allowed_roles):
 # === ROUTES ===
 
 # Homepagina (iedereen toegang)
-@app.route('/index.hmtl')
-def index():
+@app.route('/')
+def home():
     return send_from_directory('', 'index.html')
 
 # Tracker-pagina (iedereen toegang)
@@ -80,7 +80,7 @@ def tracker():
 @app.route('index.html')
 def static_files(filename):
     if filename.endswith('.css') or filename.endswith('.png') or filename.endswith('.ico'):
-        return send_from_directory('', 'index.html')
+        return send_from_directory('', '/index.html')
     abort(404)
 
 
