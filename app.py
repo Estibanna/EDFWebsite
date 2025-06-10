@@ -66,7 +66,7 @@ def user_has_access(user_roles, allowed_roles):
 
 # Homepagina (iedereen toegang)
 @app.route('/')
-def index():
+def home():
     return send_from_directory('', 'index.html')
 
 # Tracker-pagina (iedereen toegang)
