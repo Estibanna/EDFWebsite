@@ -65,7 +65,7 @@ def user_has_access(user_roles, allowed_roles):
 # === ROUTES ===
 
 # Homepagina (iedereen toegang)
-@app.route('/')
+@app.route('index.html')
 def home():
     return send_from_directory('', 'index.html')
 
