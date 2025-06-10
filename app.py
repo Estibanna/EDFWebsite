@@ -136,13 +136,12 @@ def billionaires():
         return redirect('/login')
     if not user_has_access(session.get('roles', []), ACCESS_BILLIONAIRES):
         return redirect(PATREON_URL)
-    df = pd.read_excel('billionaires.xlsx')
-    data = df.values.tolist()
-    return render_template("billionaires.html", data=data)
-
+    # HIER komt het!
     COLUMNS = ['Item', 'Abbreviation', 'Average Margin', 'Buy-limit', 'Update amount', 'Update time', 'Risk']
     df = pd.read_excel('billionaires.xlsx')
-    df = df.reindex(columns=COLUMNS)  # Forceert juiste kolomvolgorde en vult aan met NaN waar nodig
+    df = df.reindex(columns=COLUMNS)
+    data = df.values.tolist()
+    return render_template("billionaires.html", data=data)
 
 
 # Trillionaires Page - alleen voor trillionaires (en mods/owners)
