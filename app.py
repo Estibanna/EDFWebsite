@@ -11,7 +11,7 @@ app.secret_key = 'ikke'
 
 # === Vul hier je Discord IDs in ===
 DISCORD_CLIENT_ID = '1381635320658788363'
-DISCORD_CLIENT_SECRET = 'I0Y5P3z8pXkyhgQabam-_eT56Mal4EWl'
+DISCORD_CLIENT_SECRET = 'HaLBh13gkBwjwOIy3suofjrdqi9z5_KQ'
 DISCORD_REDIRECT_URI = 'https://edfwebsite.onrender.com/callback'  # Pas aan als je online host
 DISCORD_GUILD_ID = '1334260436098355250'
 
