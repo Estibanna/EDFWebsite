@@ -3,8 +3,7 @@ from flask import Flask, redirect, request, session, url_for, send_from_director
 import pandas as pd
 import requests
 import os
-from flask import render_template
-from flask import request, redirect
+
 
 app = Flask(__name__)
 app.secret_key = 'ikke'
