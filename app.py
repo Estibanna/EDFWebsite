@@ -9,8 +9,8 @@ app = Flask(__name__)
 app.secret_key = 'ikke'
 
 # === Vul hier je Discord IDs in ===
-DISCORD_CLIENT_ID = '1381635320658788363'
-DISCORD_CLIENT_SECRET = 'HaLBh13gkBwjwOIy3suofjrdqi9z5_KQ'
+DISCORD_CLIENT_ID = '1377710117969203290'
+DISCORD_CLIENT_SECRET = '75HzTwPwFPFFkgmlJE_JccH-RzPfXiqu'
 DISCORD_REDIRECT_URI = 'https://edfwebsite.onrender.com/callback'  # Pas aan als je online host
 DISCORD_GUILD_ID = '1334260436098355250'
 
@@ -29,7 +29,7 @@ PATREON_URL = 'https://www.patreon.com/c/edfflippingrs3/membership'
 ACCESS_MILLIONAIRES = [ROLE_MOD, ROLE_OWNER, ROLE_MILLIONAIRE, ROLE_BILLIONAIRE, ROLE_TRILLIONAIRE]
 ACCESS_BILLIONAIRES = [ROLE_MOD, ROLE_OWNER, ROLE_BILLIONAIRE, ROLE_TRILLIONAIRE]
 ACCESS_TRILLIONAIRES = [ROLE_MOD, ROLE_OWNER, ROLE_TRILLIONAIRE]
-
+ACCESS_SCHOOL = [ROLE_MOD, ROLE_OWNER, ROLE_MILLIONAIRE, ROLE_BILLIONAIRE, ROLE_TRILLIONAIRE]
 
         
 # === HELPER FUNCTIES ===
@@ -65,7 +65,7 @@ def user_has_access(user_roles, allowed_roles):
 # === ROUTES ===
 
 # Homepagina (iedereen toegang)
-@app.route('/')
+@app.route('/index.hmtl')
 def index():
     return send_from_directory('', 'index.html')
 
@@ -73,6 +73,8 @@ def index():
 @app.route('/tracker.html')
 def tracker():
     return send_from_directory('', 'tracker.html')
+
+
 
 # CSS en andere statische bestanden (zorg dat ze werken)
 @app.route('/<path:filename>')
@@ -86,7 +88,7 @@ def static_files(filename):
 def login():
     redirect_uri = urllib.parse.quote_plus(DISCORD_REDIRECT_URI)
     return redirect(
-        f"https://discord.com/oauth2/authorize?client_id=1381635320658788363&response_type=code&redirect_uri=https%3A%2F%2Fedfwebsite.onrender.com%2Fcallback&scope=identify+guilds+guilds.members.read"
+        f"https://discord.com/oauth2/authorize?client_id=1377710117969203290&response_type=code&redirect_uri=https%3A%2F%2Fedfwebsite.onrender.com%2Fcallback&scope=identify+guilds+guilds.members.read"
     )
     
 # Discord callback
@@ -104,7 +106,6 @@ def callback():
     return redirect(url_for('secret_menu'))
 
 
-
 # Uitloggen
 @app.route('/logout')
 def logout():
@@ -117,6 +118,25 @@ def secret_menu():
     if not session.get('username'):
         return redirect('/login')
     return render_template("Secret.html")
+
+
+# school Page - alleen voor millionaires en hoger
+@app.route('/school')
+def school():
+    # Laad data, eventueel try/except of een fallback
+    try:
+        data = get_data()  # Jouw eigen functie of manier
+    except:
+        data = {}
+    return render_template("school.html", data=data)
+
+
+
+
+
+
+
+
 
 # Millionaires Page - alleen voor millionaires en hoger
 @app.route('/millionaires')

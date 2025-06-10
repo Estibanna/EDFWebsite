@@ -4,10 +4,9 @@
 <meta charset="UTF-8">
   <title>RuneScape Flipping Discord – RS3 Money Making & Merchanting Community</title>
     <meta name="google-site-verification" content="Ykv-iYjL2g6JTDt995fQFjElxH6VdZJtlwSqANbJuPw" />
-    <meta name="description" content="Join EDF Flipping, the best Discord community for RuneScape flipping, RS3 money making, merching, buy & sell tips, and live price updates. Make profit with items like FSOA, Dragonwilds, Lantern, Omni, Havoc, and more!">
-  <meta property="og:title" content="EDF Flipping Discord – RuneScape RS3 Money Making">
+    <meta name="description" content="Join EDF Flipping Community, the best Discord for RuneScape flipping, RS3 money making, merching, buy & sell tips, and live price updates. Profit with top items!">  <meta property="og:title" content="EDF Flipping Discord – RuneScape RS3 Money Making">
   <meta property="og:description" content="Join the RS3 Discord community for merchanting, flipping, item prices, and profit with RuneScape!">
-  <meta property="og:image" content="https://edfflipping.com/logo.png">
+  <meta property="og:image" content="logo.png">
   <meta property="og:url" content="https://edfflipping.com/">	
   
  
@@ -23,9 +22,10 @@
     <div class="nav-container">
       <img src="logo.png" class="nav-logo" alt="EDF Logo">
       <div class="nav-links">
-        <a href="#home" class="active">Home</a>
-        <a href="#tracker" id="trackerLink">Flipping Tracker</a>
+        <a href="#home" id="homelink">Home</a>
+        <a href="#tracker" id="trackerlink">Flipping Tracker</a>
         <a href="https://edfwebsite.onrender.com/login">Item lists</a>
+        <a href="https://edfwebsite.onrender.com/login">Flipping School</a>
 
         <a href="https://discord.gg/HANAmhnUjS" target="_blank">Join Discord</a>
       </div>
@@ -36,7 +36,12 @@
    </br>
     </br>
 	 </br>
-	  
+
+
+
+
+
+
 	  
     <img src="logo.png" alt="EDF Logo" class="logo pulse-anim">
     <h1 class="glow-text">EDF Flipping Discord</h1>
@@ -72,17 +77,49 @@
     </a>
   </section>
 
-  
+
+   
+
+
+
+
+
+  </section>
   <footer>
     <p>Not affiliated with Jagex or RuneScape &bull; &copy; 2025 EDF Flipping</p>
   </footer>
+  <script>
+    // Lucide icons (https://lucide.dev/)
+    lucide.createIcons();
+
+    // Smooth scroll for nav
+    document.getElementById("homelink").onclick = function(e) {
+      e.preventDefault();
+      document.getElementById("home").scrollIntoView({ behavior: "smooth" });
+    };
+
+    // Fade-in on scroll for feature list
+    function fadeInOnScroll() {
+      document.querySelectorAll('.fadein, .slidein').forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if(rect.top < window.innerHeight - 60) {
+          el.classList.add('visible');
+        }
+      });
+    }
+    window.addEventListener('scroll', fadeInOnScroll);
+    window.addEventListener('load', fadeInOnScroll);
+  </script>
+
+
+
 
   <script>
     // Lucide icons (https://lucide.dev/)
     lucide.createIcons();
 
     // Smooth scroll for nav
-    document.getElementById("trackerLink").onclick = function(e) {
+    document.getElementById("trackerlink").onclick = function(e) {
       e.preventDefault();
       document.getElementById("tracker").scrollIntoView({ behavior: "smooth" });
     };
@@ -99,5 +136,8 @@
     window.addEventListener('scroll', fadeInOnScroll);
     window.addEventListener('load', fadeInOnScroll);
   </script>
+
+
+  
 </body>
 </html>
