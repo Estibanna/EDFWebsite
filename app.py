@@ -140,6 +140,11 @@ def billionaires():
     data = df.values.tolist()
     return render_template("billionaires.html", data=data)
 
+    COLUMNS = ['Item', 'Abbreviation', 'Average Margin', 'Buy-limit', 'Update amount', 'Update time', 'Risk']
+    df = pd.read_excel('billionaires.xlsx')
+    df = df.reindex(columns=COLUMNS)  # Forceert juiste kolomvolgorde en vult aan met NaN waar nodig
+
+
 # Trillionaires Page - alleen voor trillionaires (en mods/owners)
 @app.route('/trillionaires')
 def trillionaires():
